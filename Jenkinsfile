@@ -1,6 +1,13 @@
 pipeline {
   agent any
   stages {
+    stage('clone down') {
+      agent { abel 'master-label'}
+      steps {
+        stash excludes: '.git', name: 'code'
+      }
+        
+    }
     stage('Parallel exec') {
       parallel {
         stage('Say Hello') {
