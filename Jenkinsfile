@@ -17,6 +17,9 @@ pipeline {
         }
 
         stage('Build App') {
+          options{
+            skipDefaultCheckout(true)
+          }
           agent {
             docker {
               image 'gradle:jdk11'
