@@ -32,7 +32,7 @@ pipeline {
           }
         }
 
-          stage('test app') {
+        stage('test app') {
           agent {
             docker {
               image 'gradle:jdk11'
@@ -47,7 +47,7 @@ pipeline {
             sh 'ci/unit-test-app.sh'
             junit 'app/build/test-results/test/TEST-*.xml'
           }
-
+        }
       }
     }
 
